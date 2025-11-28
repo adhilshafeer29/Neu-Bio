@@ -4,36 +4,136 @@
 
 @layer base {
   :root {
-    /* Brand Color System - Warm, organic, human-centered */
-    --color-primary: #f5a623; /* Warm amber - represents sound, warmth, human connection */
-    --color-primary-dark: #d4880a;
-    --color-accent: #00d4ff; /* Cyan - technology, clarity */
-    --color-accent-muted: rgba(0, 212, 255, 0.3);
-    --color-bg-primary: #0a0a0a; /* Deep black with warmth */
-    --color-bg-secondary: #141414;
-    --color-text-primary: #f5f5f5;
-    --color-text-secondary: rgba(245, 245, 245, 0.7);
-    --color-text-muted: rgba(245, 245, 245, 0.5);
+    /* Blue Gradient Color System - Matching the vibrant blue gradient */
+    --color-primary: #4A90E2; /* Sky blue - center of gradient */
+    --color-primary-light: #87CEEB; /* Light sky blue */
+    --color-primary-dark: #1E3A5F; /* Deep navy */
+    --color-accent: #00BFFF; /* Bright cyan blue */
+    --color-accent-muted: rgba(0, 191, 255, 0.3);
+    --color-gradient-center: #E0F2FF; /* Almost white/light blue center */
+    --color-gradient-mid: #4A90E2; /* Medium blue */
+    --color-gradient-edge: #0A1A2E; /* Deep navy/black edge */
+    --color-bg-primary: #000000; /* Pure black background */
+    --color-bg-secondary: #0a0a0a; /* Very dark gray */
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: rgba(255, 255, 255, 0.8);
+    --color-text-muted: rgba(255, 255, 255, 0.6);
+    /* Typekit Font - Will be loaded from Adobe Fonts */
+    --font-typekit: 'Paralucent', 'Inter', sans-serif;
+  }
+
+  /* Paralucent Font Family */
+  @font-face {
+    font-family: 'Paralucent';
+    src: url('/fonts/Paralucent-Light.woff2') format('woff2'),
+         url('/fonts/Paralucent-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Paralucent';
+    src: url('/fonts/Paralucent-Regular.woff2') format('woff2'),
+         url('/fonts/Paralucent-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Paralucent';
+    src: url('/fonts/Paralucent-Bold.woff2') format('woff2'),
+         url('/fonts/Paralucent-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
   }
 
   body {
     @apply antialiased;
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
-    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 300;
+    font-family: 'Paralucent', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
     letter-spacing: -0.01em;
   }
 
-  /* Typography System */
+  /* Typography System - Paralucent */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', serif;
-    font-weight: 400;
+    font-family: 'Paralucent', 'Inter', sans-serif;
+    font-weight: 700; /* Bold for headings */
     letter-spacing: -0.02em;
     line-height: 1.1;
   }
 
-  /* Subtle texture overlay for depth */
+  /* Body text - Regular weight */
+  p, span, div, a, button {
+    font-family: 'Paralucent', 'Inter', sans-serif;
+  }
+
+  /* Light weight for subtle text */
+  .font-light, .text-muted {
+    font-weight: 300;
+  }
+
+  /* Glassmorphic Button Effect - Blue Theme */
+  .glassmorphism-button {
+    position: relative;
+    backdrop-filter: blur(8px) saturate(100%);
+    -webkit-backdrop-filter: blur(8px) saturate(100%);
+    background: rgba(74, 144, 226, 0.08); /* Blue tint instead of amber */
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      4px 4px 20px 0 rgba(30, 58, 95, 0.15), /* Blue shadow instead of amber */
+      inset 0 0 150px rgba(74, 144, 226, 0.08), /* Blue glow instead of amber */
+      inset 0px 0px 4px 2px rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+  }
+
+  .glassmorphism-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(to left top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 50%);
+    z-index: 1;
+  }
+
+  .glassmorphism-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+  }
+
+  .glassmorphism-button > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Regular weight for body */
+  .font-normal, body {
+    font-weight: 400;
+  }
+
+  /* Bold weight for emphasis */
+  .font-bold, h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+  }
+
+  /* Blue gradient background overlay */
   body::before {
     content: '';
     position: fixed;
@@ -42,8 +142,9 @@
     width: 100%;
     height: 100%;
     background-image: 
-      radial-gradient(circle at 20% 50%, rgba(245, 166, 35, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.02) 0%, transparent 50%);
+      radial-gradient(circle at 50% 50%, rgba(224, 242, 255, 0.15) 0%, rgba(74, 144, 226, 0.1) 30%, rgba(30, 58, 95, 0.05) 60%, transparent 100%),
+      radial-gradient(circle at 20% 30%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(0, 191, 255, 0.08) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
   }
@@ -56,7 +157,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1;
   }
@@ -67,7 +168,7 @@
     text-wrap: balance;
   }
 
-  /* Custom scrollbar - warm, intentional */
+  /* Custom scrollbar - blue theme */
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
   }
@@ -82,7 +183,7 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary-dark);
+    background: var(--color-accent);
   }
 }
 
@@ -105,20 +206,26 @@ html {
   }
 }
 
-/* Global scrollbar styling */
+/* Hide scrollbars globally */
 ::-webkit-scrollbar {
-  width: 8px;
+  display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 4px;
+html, body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-dark);
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
