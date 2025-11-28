@@ -1,6 +1,6 @@
 import HeroSection from './components/HeroSection'
 import ProductSection from './components/ProductSection'
-// import EcosystemSection from './components/EcosystemSection'
+import EcosystemSection from './components/EcosystemSection'
 import PlatformSection from './components/PlatformSection'
 import { TestimonialSection, Testimonial } from './components/TestimonialSection'
 
