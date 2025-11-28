@@ -30,53 +30,72 @@ const ProductSection: React.FC = () => {
   ]
 
   return (
-    <section ref={sectionRef} className="relative min-h-[300vh] bg-black px-6 lg:px-12 py-20">
+    <section 
+      ref={sectionRef} 
+      className="relative min-h-[300vh] px-6 lg:px-12 py-20"
+      style={{ backgroundColor: 'var(--color-bg-primary)' }}
+    >
       <div className="sticky top-0 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Section - Text */}
           <div className="relative z-10">
-            {/* Progress indicator */}
+            {/* Progress indicator - Warm amber accent */}
             <div className="absolute -left-8 top-0 bottom-0 flex flex-col items-center">
-              <div className="w-px h-full bg-white/20"></div>
+              <div 
+                className="w-px h-full"
+                style={{ backgroundColor: 'rgba(245, 166, 35, 0.15)' }}
+              ></div>
               <motion.div
-                className="absolute w-2 h-2 bg-white rounded-full"
+                className="absolute w-2 h-2 rounded-full"
                 style={{
                   top: '0%',
+                  backgroundColor: 'var(--color-primary)',
                   opacity: progressOpacity1,
                 }}
               />
               <motion.div
-                className="absolute w-2 h-2 bg-white rounded-full"
+                className="absolute w-2 h-2 rounded-full"
                 style={{
                   top: '33.33%',
+                  backgroundColor: 'var(--color-primary)',
                   opacity: progressOpacity2,
                 }}
               />
               <motion.div
-                className="absolute w-2 h-2 bg-white rounded-full"
+                className="absolute w-2 h-2 rounded-full"
                 style={{
                   top: '66.66%',
+                  backgroundColor: 'var(--color-primary)',
                   opacity: progressOpacity3,
                 }}
               />
             </div>
 
             <motion.h2
-              className="text-6xl md:text-7xl lg:text-8xl font-normal text-white mb-8"
+              className="text-6xl md:text-7xl lg:text-8xl mb-8 leading-[0.95] tracking-[-0.02em]"
+              style={{ color: 'var(--color-text-primary)' }}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1]
+              }}
             >
               Implant
             </motion.h2>
 
             <motion.p
-              className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl"
+              className="text-lg md:text-xl leading-relaxed max-w-xl font-light"
+              style={{ color: 'var(--color-text-secondary)' }}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1]
+              }}
             >
               Our brain-computer interface is fully implantable, cosmetically invisible, and designed to let you control a computer or mobile device anywhere you go.
             </motion.p>
@@ -136,7 +155,17 @@ const ProductSection: React.FC = () => {
 
       {/* Skip This Section Link */}
       <div className="absolute bottom-8 left-8 z-30">
-        <a href="#next" className="text-white/60 text-sm font-medium underline hover:text-white transition-colors">
+        <a 
+          href="#next" 
+          className="text-sm font-light tracking-wider uppercase underline transition-colors"
+          style={{ color: 'var(--color-text-muted)' }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = 'var(--color-text-secondary)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = 'var(--color-text-muted)'
+          }}
+        >
           Skip This Section ↓
         </a>
       </div>

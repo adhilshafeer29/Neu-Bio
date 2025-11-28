@@ -14,15 +14,15 @@ const GlowingOrb = ({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }
         <div className="w-16 h-16 bg-black rounded-full"></div>
       </div>
 
-      {/* Gradient layers */}
+      {/* Gradient layers - Warm amber and cyan */}
       <motion.div
         className="absolute inset-0 rounded-full blur-2xl"
         style={{
-          background: 'radial-gradient(circle, rgba(88, 28, 135, 0.4), rgba(219, 39, 119, 0.3), rgba(59, 130, 246, 0.2))',
+          background: 'radial-gradient(circle, rgba(245, 166, 35, 0.3), rgba(0, 212, 255, 0.2), rgba(245, 166, 35, 0.15))',
         }}
         animate={{
           scale: [1, 1.1, 1],
-          opacity: [0.5, 0.7, 0.5],
+          opacity: [0.4, 0.6, 0.4],
         }}
         transition={{
           duration: 4,
@@ -33,11 +33,11 @@ const GlowingOrb = ({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }
       <motion.div
         className="absolute inset-0 rounded-full blur-xl"
         style={{
-          background: 'radial-gradient(circle, rgba(219, 39, 119, 0.3), rgba(126, 34, 206, 0.25), rgba(96, 165, 250, 0.15))',
+          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.25), rgba(245, 166, 35, 0.2), rgba(0, 212, 255, 0.1))',
         }}
         animate={{
           scale: [1, 1.15, 1],
-          opacity: [0.4, 0.6, 0.4],
+          opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
           duration: 3.5,
@@ -51,19 +51,25 @@ const GlowingOrb = ({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }
 
 const EcosystemSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-black px-6 lg:px-12 py-20">
+    <section 
+      className="relative min-h-screen flex items-center overflow-hidden px-6 lg:px-12 py-20"
+      style={{ backgroundColor: 'var(--color-bg-primary)' }}
+    >
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left Content */}
         <div className="relative z-10">
-          {/* Gradient Headline */}
+          {/* Gradient Headline - Warm to cool, intentional */}
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
+            className="text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em] mb-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ 
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1]
+            }}
             style={{
-              background: 'linear-gradient(to bottom, #f97316, #a855f7)',
+              background: 'linear-gradient(to bottom, var(--color-primary), var(--color-accent))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -107,7 +113,12 @@ const EcosystemSection: React.FC = () => {
 
       {/* Bottom Left: Neubio AI Hearing Ecosystem™ */}
       <div className="absolute bottom-8 left-8 z-30">
-        <p className="text-white/60 text-xs font-medium">Neubio AI Hearing Ecosystem™</p>
+        <p 
+          className="text-xs font-light tracking-wider uppercase"
+          style={{ color: 'var(--color-text-muted)' }}
+        >
+          Neubio AI Hearing Ecosystem™
+        </p>
       </div>
 
       {/* Bottom Right: Four-pointed star icon */}
