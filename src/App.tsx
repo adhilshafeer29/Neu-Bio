@@ -1,10 +1,9 @@
 import React from 'react'
 import HeroSection from './components/HeroSection'
 import ProductSection from './components/ProductSection'
-import EcosystemSection from './components/EcosystemSection'
+// import EcosystemSection from './components/EcosystemSection'
 import PlatformSection from './components/PlatformSection'
 import Features from './components/Features'
-import About from './components/About'
 import Footer from './components/Footer'
 import Header from './components/Header'
 
@@ -15,10 +14,9 @@ function App() {
       <main>
         <HeroSection />
         <ProductSection />
-        <EcosystemSection />
-        <PlatformSection />
-        <Features />
-        <About />
+        {/* <EcosystemSection /> */}
+        {/* <PlatformSection /> */}
+        {/* <Features /> */}
       </main>
       <Footer />
     </div>
