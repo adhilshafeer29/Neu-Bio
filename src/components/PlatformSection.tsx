@@ -14,11 +14,11 @@ const GlowingOrb = ({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }
         <div className="w-16 h-16 bg-black rounded-full"></div>
       </div>
 
-      {/* Warm amber and cyan gradient layers - more prominent */}
+      {/* Blue gradient layers - more prominent */}
       <motion.div
         className="absolute inset-0 rounded-full blur-2xl"
         style={{
-          background: 'radial-gradient(circle, rgba(245, 166, 35, 0.4), rgba(0, 212, 255, 0.3), rgba(245, 166, 35, 0.25))',
+          background: 'radial-gradient(circle, rgba(224, 242, 255, 0.4), rgba(74, 144, 226, 0.3), rgba(0, 191, 255, 0.25))',
         }}
         animate={{
           scale: [1, 1.1, 1],
@@ -33,7 +33,7 @@ const GlowingOrb = ({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }
       <motion.div
         className="absolute inset-0 rounded-full blur-xl"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.35), rgba(245, 166, 35, 0.3), rgba(0, 212, 255, 0.2))',
+          background: 'radial-gradient(circle, rgba(0, 191, 255, 0.35), rgba(74, 144, 226, 0.3), rgba(135, 206, 235, 0.2))',
         }}
         animate={{
           scale: [1, 1.15, 1],
@@ -55,24 +55,24 @@ const PlatformSection: React.FC = () => {
       className="relative min-h-screen flex items-center overflow-hidden px-6 lg:px-12 py-20"
       style={{ 
         backgroundColor: 'var(--color-bg-primary)',
-        background: 'linear-gradient(to right, var(--color-bg-primary), rgba(245, 166, 35, 0.05))'
+        background: 'linear-gradient(to right, var(--color-bg-primary), rgba(74, 144, 226, 0.05))'
       }}
     >
-      {/* Background gradient glow - warm amber */}
+      {/* Background gradient glow - blue */}
       <div 
         className="absolute right-0 top-0 w-1/2 h-full"
         style={{
-          background: 'linear-gradient(to left, rgba(245, 166, 35, 0.08), transparent)'
+          background: 'linear-gradient(to left, rgba(74, 144, 226, 0.08), transparent)'
         }}
       ></div>
 
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
         {/* Left Content */}
         <div className="relative z-10">
-          {/* Large Headline - Editorial serif */}
+          {/* Large Headline - Paralucent Bold */}
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em] mb-8"
-            style={{ color: 'var(--color-text-primary)' }}
+            className="text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em] mb-8 font-bold"
+            style={{ color: 'var(--color-text-primary)', fontFamily: 'Paralucent, Inter, sans-serif' }}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -87,7 +87,7 @@ const PlatformSection: React.FC = () => {
           {/* Paragraph */}
           <motion.p
             className="text-lg md:text-xl leading-relaxed max-w-2xl font-light"
-            style={{ color: 'var(--color-text-secondary)' }}
+            style={{ color: 'var(--color-text-secondary)', fontFamily: 'Paralucent, Inter, sans-serif' }}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
