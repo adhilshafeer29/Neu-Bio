@@ -14,11 +14,11 @@ const GlowingOrb = ({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }
         <div className="w-16 h-16 bg-black rounded-full"></div>
       </div>
 
-      {/* Gradient layers - Blue gradient */}
+      {/* Gradient layers - Warm amber and cyan */}
       <motion.div
         className="absolute inset-0 rounded-full blur-2xl"
         style={{
-          background: 'radial-gradient(circle, rgba(224, 242, 255, 0.3), rgba(74, 144, 226, 0.2), rgba(0, 191, 255, 0.15))',
+          background: 'radial-gradient(circle, rgba(245, 166, 35, 0.3), rgba(0, 212, 255, 0.2), rgba(245, 166, 35, 0.15))',
         }}
         animate={{
           scale: [1, 1.1, 1],
@@ -33,7 +33,7 @@ const GlowingOrb = ({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }
       <motion.div
         className="absolute inset-0 rounded-full blur-xl"
         style={{
-          background: 'radial-gradient(circle, rgba(0, 191, 255, 0.25), rgba(74, 144, 226, 0.2), rgba(135, 206, 235, 0.1))',
+          background: 'radial-gradient(circle, rgba(0, 212, 255, 0.25), rgba(245, 166, 35, 0.2), rgba(0, 212, 255, 0.1))',
         }}
         animate={{
           scale: [1, 1.15, 1],
@@ -58,9 +58,9 @@ const EcosystemSection: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left Content */}
         <div className="relative z-10">
-          {/* Gradient Headline - Blue gradient */}
+          {/* Gradient Headline - Warm to cool, intentional */}
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em] mb-8 font-bold"
+            className="text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em] mb-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -69,11 +69,10 @@ const EcosystemSection: React.FC = () => {
               ease: [0.22, 1, 0.36, 1]
             }}
             style={{
-              background: 'linear-gradient(to bottom, var(--color-gradient-center), var(--color-primary), var(--color-accent))',
+              background: 'linear-gradient(to bottom, var(--color-primary), var(--color-accent))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              fontFamily: 'Paralucent, Inter, sans-serif',
             }}
           >
             Building the first intelligent hearing ecosystem — from hardware to health data.
@@ -116,7 +115,7 @@ const EcosystemSection: React.FC = () => {
       <div className="absolute bottom-8 left-8 z-30">
         <p 
           className="text-xs font-light tracking-wider uppercase"
-          style={{ color: 'var(--color-text-muted)', fontFamily: 'Paralucent, Inter, sans-serif' }}
+          style={{ color: 'var(--color-text-muted)' }}
         >
           Neubio AI Hearing Ecosystem™
         </p>
