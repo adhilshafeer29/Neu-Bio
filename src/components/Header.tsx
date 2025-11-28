@@ -34,7 +34,7 @@ const Header = () => {
             <a href="#updates" className="text-white hover:text-blue-400 transition-colors text-sm font-medium">
               Updates
             </a>
-            <button className="px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 text-sm font-medium">
+            <button className="px-4 py-2 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 text-sm font-normal" style={{ fontFamily: 'Paralucent, Inter, sans-serif' }}>
               Clinical Trials
             </button>
           </motion.div>
