@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-40"
         >
           <source src="/Video/Video2.mp4" type="video/mp4" />
           Your browser does not support the video tag.
