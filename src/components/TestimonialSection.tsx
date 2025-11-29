@@ -50,12 +50,13 @@ export const TestimonialSection = ({
   };
 
   return (
-    <section className="w-full py-16 sm:py-24 relative bg-black overflow-hidden">
+    <section className="w-full py-16 sm:py-24 relative overflow-hidden">
        {/* Background elements to enhance glass effect */}
        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-72 h-72 bg-black-600/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-black-500/30 rounded-full blur-[100px]" />
+        <div className="absolute top-[20%] left-[10%] w-72 h-72 bg-blue-600/20 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-indigo-500/30 rounded-full blur-[100px]" />
       </div>
+
       <div className="container mx-auto max-w-6xl px-4 text-center relative z-10">
         {/* Section Header */}
         <motion.div
@@ -86,7 +87,7 @@ export const TestimonialSection = ({
               className="liquid-glass relative overflow-hidden flex flex-col p-2"
               variants={itemVariants}
             >
-              <div className="relative h-[450px] w-full overflow-hidden rounded-2xl z-10">
+              <div className="relative h-[450px] w-full overflow-hidden rounded-2xl">
                 <img
                   src={testimonial.imageSrc}
                   alt={testimonial.name}
@@ -124,4 +125,3 @@ export const TestimonialSection = ({
     </section>
   );
 };
-
