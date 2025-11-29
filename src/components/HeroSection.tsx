@@ -8,6 +8,17 @@ const HeroSection: React.FC = () => {
     if (videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.play().catch(e => console.error("Autoplay failed", e));
+      
+      // Force loop check
+      const handleEnded = () => {
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+          videoRef.current.play().catch(console.error);
+        }
+      };
+      
+      videoRef.current.addEventListener('ended', handleEnded);
+      return () => videoRef.current?.removeEventListener('ended', handleEnded);
     }
   }, []);
 
@@ -47,6 +58,27 @@ const HeroSection: React.FC = () => {
         >
           <span className="block">World Hears</span>
           <span className="block">from the UAE</span>
+        </motion.h1>
+      </div>
+
+      {/* Text Overlay - UAE on top of image (z-20 > z-10) */}
+      <div className="absolute inset-0 z-20 flex items-center justify-start pl-8 md:pl-12 lg:pl-16 pointer-events-none">
+         <motion.h1 
+          className="text-7xl md:text-8xl lg:text-9xl text-transparent leading-[0.95] tracking-tight text-left"
+          style={{ 
+            fontFamily: 'var(--font-typekit, "Paralucent", Inter, sans-serif)',
+            fontWeight: 400
+          }}
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1.5,
+            ease: [0.25, 0.1, 0.25, 1],
+            delay: 0.3
+          }}
+        >
+          <span className="block">World Hears</span>
+          <span className="block">from the <span className="text-white" style={{ textShadow: '0 0 40px rgba(0, 0, 0, 0.5)' }}>UAE</span></span>
         </motion.h1>
       </div>
 
